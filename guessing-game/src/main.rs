@@ -31,6 +31,11 @@ fn main() {
         // If the Result is "Err", then the message we pass here is output and the program errors.
         .expect("Failed to read line");
 
+    // try and parse guess as a u32 (unsigned 32-bit number) by annotating the type,
+    // by using string functions to parse the previous value of guess.
+    // then, assign the value to a new variable that shadows guess.
+    let guess: u32 = guess.trim().parse().expect("expected a number");
+
     println!("You guessed: {guess}");
 
     // use guess.cmp() to compare guess to the secret_number,
